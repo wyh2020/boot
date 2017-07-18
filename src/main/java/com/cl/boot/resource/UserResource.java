@@ -3,7 +3,6 @@ package com.cl.boot.resource;
 import com.cl.boot.api.UserService;
 import com.cl.boot.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -31,7 +30,7 @@ public class UserResource {
 
     @GET
     @Path("editUser")
-    public Response editUser() throws Exception{
+    public Response editUser() throws Exception {
         userService.editUsers();
         return Response.ok().build();
     }
