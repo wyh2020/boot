@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+#导入对应的配置
+spring:
+  profiles:
+    active: dev
+  mvc:
+    static-path-pattern: /static/**
+  thymeleaf:
+    mode: LEGACYHTML5
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.cl.boot.model
