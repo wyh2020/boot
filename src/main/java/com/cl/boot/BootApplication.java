@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement
 @MapperScan(basePackages = "com.cl.boot.mapper")
-public class BootApplication extends SpringBootServletInitializer{
+public class BootApplication extends SpringBootServletInitializer {
 
 
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class BootApplication extends SpringBootServletInitializer{
     }
 
     @Bean
-    public ServletRegistrationBean jersetServlet() {
+    public ServletRegistrationBean jerseyServlet() {
         ServletRegistrationBean registration = new ServletRegistrationBean(new ServletContainer(), "/api/*");
         registration.addInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyConfig.class.getName());
         return registration;

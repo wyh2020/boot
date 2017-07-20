@@ -72,6 +72,46 @@
 		</dependency>
 
 		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jersey2-jaxrs</artifactId>
+			<version>1.5.10</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jersey</groupId>
+					<artifactId>jersey-client</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jersey</groupId>
+					<artifactId>jersey-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jersey</groupId>
+					<artifactId>jersey-server</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jersey</groupId>
+					<artifactId>jersey-servlet</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jersey</groupId>
+					<artifactId>jersey-multipart</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
 			<groupId>net.sourceforge.nekohtml</groupId>
 			<artifactId>nekohtml</artifactId>
 			<version>1.9.21</version>
@@ -101,27 +141,27 @@
 				<artifactId>wagon-maven-plugin</artifactId>
 				<version>1.0</version>
 				<executions>
-					<execution>
-						<id>upload-deploy</id>
-						<!-- 运行package打包的同时运行upload-single和sshexec -->
-						<phase>package</phase>
-						<goals>
-							<goal>upload-single</goal>
-							<goal>sshexec</goal>
-						</goals>
-						<configuration>
-							<serverId>mylinuxserver</serverId>
-							<fromFile>target/boot-0.0.1-SNAPSHOT.war</fromFile>
-							<url>scp://root@192.168.1.150/cl/update</url>
-							<commands>
-								<command>rm -rf /cl/web</command>
-								<command>kill -9 $(ps -ef|grep tomcat|gawk '$0 !~/grep/ {print $2}' |tr -s '\n' ' ')</command>
-								<command>unzip -d /cl/web /cl/update/boot-0.0.1-SNAPSHOT.war</command>
-								<command>/cl/apache-tomcat-7.0.79/bin/startup.sh start</command>
-							</commands>
-							<displayCommandOutputs>true</displayCommandOutputs>
-						</configuration>
-					</execution>
+					<!--<execution>-->
+						<!--<id>upload-deploy</id>-->
+						<!--&lt;!&ndash; 运行package打包的同时运行upload-single和sshexec &ndash;&gt;-->
+						<!--<phase>package</phase>-->
+						<!--<goals>-->
+							<!--<goal>upload-single</goal>-->
+							<!--<goal>sshexec</goal>-->
+						<!--</goals>-->
+						<!--<configuration>-->
+							<!--<serverId>mylinuxserver</serverId>-->
+							<!--<fromFile>target/boot-0.0.1-SNAPSHOT.war</fromFile>-->
+							<!--<url>scp://root@192.168.1.150/cl/update</url>-->
+							<!--<commands>-->
+								<!--<command>rm -rf /cl/web</command>-->
+								<!--<command>kill -9 $(ps -ef|grep tomcat|gawk '$0 !~/grep/ {print $2}' |tr -s '\n' ' ')</command>-->
+								<!--<command>unzip -d /cl/web /cl/update/boot-0.0.1-SNAPSHOT.war</command>-->
+								<!--<command>/cl/apache-tomcat-7.0.79/bin/startup.sh start</command>-->
+							<!--</commands>-->
+							<!--<displayCommandOutputs>true</displayCommandOutputs>-->
+						<!--</configuration>-->
+					<!--</execution>-->
 				</executions>
 			</plugin>
 			<plugin>

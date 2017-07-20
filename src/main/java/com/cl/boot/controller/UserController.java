@@ -1,5 +1,6 @@
 package com.cl.boot.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,5 +23,4 @@ public class UserController {
     public ModelAndView user() {
         return new ModelAndView("/user");
     }
-
 }
