@@ -18,13 +18,13 @@ public class JerseyConfig extends ResourceConfig {
         packages("com.cl.boot.resource");
     }
 
-    @PostConstruct
-    public void init() {
-        register(io.swagger.jaxrs.listing.ApiListingResource.class);
-        register(io.swagger.jaxrs.listing.AcceptHeaderApiListingResource.class);
-        register(io.swagger.jaxrs.listing.SwaggerSerializers.class);
-        register(com.cl.boot.Swagger2.class);
-    }
+//    @PostConstruct
+//    public void init() {
+//        register(io.swagger.jaxrs.listing.ApiListingResource.class);
+//        register(io.swagger.jaxrs.listing.AcceptHeaderApiListingResource.class);
+//        register(io.swagger.jaxrs.listing.SwaggerSerializers.class);
+//        register(com.cl.boot.Swagger2.class);
+//    }
 
 
 }
